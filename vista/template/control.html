@@ -1,0 +1,853 @@
+
+
+  <div id="workshops-list">
+    <article id="w1" class="workshop workshop-left">
+      <div class="container" class="col-xs-3 main-info" >
+        <div class="row-fluid">
+          <div class="span6">
+            <div class="page-header">
+              <h1>Tablas y registros</h1>     
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-xs-3 main-info" >
+        <div class="row-fluid">
+          <div class="col-md-8">                 
+            <div class="form-group">
+              <div class="col-md-8">
+                <a class="btn btn-primary btn-lg boton-secundario"  role="button" href="#/control/medicoCerda">Control médico cerda</a>
+               </div>
+             </div>
+             <div class="form-group">
+               <div class="col-md-8 ">
+                 <a class="btn btn-primary btn-lg boton-secundario"  role="button" href="#/control/medicoLotes">Control médico lotes</a>
+               </div>
+             </div>
+             <div class="form-group">
+               <div class="col-md-8 ">
+                 <a class="btn btn-primary btn-lg boton-secundario" role="button" href="#/control/lotes">Control de peso</a>
+               </div>
+             </div>
+            <div class="form-group">
+              <div class="col-md-8">
+                <a class="btn btn-primary btn-lg boton-secundario" role="button" href="#/control/Cubriciones">Cubriciones</a>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <div class="col-md-8">
+                <a class="btn btn-primary btn-lg boton-secundario" role="button" href="#/control/alimentoCerda">Alimento de cerdas</a>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-8">
+                <a class="btn btn-primary btn-lg boton-secundario" role="button" href="#/control/alimentoLote">Alimento de lotes</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    
+      
+<!-- estos son los elementos que controlaremos para la tabla del control de medicina de las cerda-->
+      <div class="col-xs-7">
+        
+          <div class="modal fade" id="modal-id2">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form class="form_medCerda" role="form" name="forma">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Control médico de cerdas</h4>
+                  </div>
+                  <div class="modal-body" style="height: 400px">                 
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <input type="text" class="Contact-name form-control" placeholder="Nombre medicamento" name="nombre" ng-model="vm.fdatos.nombre" required/>
+                      </div>
+                    </div>                             
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <input type="text" class="Contact-email form-control" placeholder="Id cerda" ng-model="vm.fdatos.idcerda" title"Id cerda" required/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="date" class="Contact-email form-control" placeholder="Fecha de aplicacion"  ng-model="vm.fdatos.fecha" required/>
+                      </div>
+                    </div>                  
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="number" class="Contact-email form-control" placeholder="Dosis"  ng-model="vm.fdatos.dosis" required/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="text" class="Contact-email form-control" placeholder="Descripcion"   ng-model="vm.fdatos.descripcion" required/>
+                      </div>
+                    </div>                      
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button ng-click="vm.editarMedCerda1()" class="beditarMedCerda" type="submit" ng-disabled="forma.$invalid" type="button" class="btn btn-default" data-dismiss="modal">{{textButton}}</button>
+                    <button ng-click="vm.enviarMedCerda1()" class=" bguardarMedCerda" type="submit" ng-disabled="forma.$invalid" type="button" class="btn btn-default" data-dismiss="modal">{{textButton}}</button>
+                  </div>
+                </form>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+
+
+
+
+          <div class="modal fade" id="modal-id3">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title">Eliminar registro</h4>
+                </div>
+                <div class="modal-body" style="height: 400px">
+                  <div class="eliminar_medCerda">
+                    <h6>Está seguro que desea eliminar el registro?</h6>
+                    <button ng-click="vm.borrarMedCerda1()" type="button"  data-dismiss="modal">Si</button>
+                    <button>No</button>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+
+        
+
+        <div class="tabla_medicamento_cerda">
+          <span class="glyphicon glyphicon-save" ></span>
+
+            <button ng-click="vm.enviarMedCerda()" data-toggle="modal" role="button" data-target='#modal-id2'>Agregar</button>
+              <table border="2px;" class=".table-condensed">
+                <thead>
+                  <tr>
+                    <th>Nº Reg</th>
+                    <th>Nombre </th> 
+                    <th>Id cerda</th> 
+                    <th>Fecha de aplicacion</th>
+                    <th>Dosis</th>
+                    <th>Descripcion</th>                    
+                    <th>Opciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="n in names">
+                    <td>{{n.id}}</td>               
+                    <td>{{n.nombre}} </td>
+                    <td>{{n.idcerda}}</td>
+                    <td>{{n.fecha}}</td>
+                    <td>{{n.dosis}}</td>                    
+                    <td>{{n.descripcion}}</td>
+                    <td>
+                      <button  ng-click="vm.borrarMedCerda(n.id)" data-toggle="modal" role="button" data-target='#modal-id3' >Eliminar</button>
+                      <button ng-click="vm.editarMedCerda(n.id, n.nombre, n.idcerda, n.fecha, n.dosis, n.descripcion)" data-toggle="modal" role="button" data-target='#modal-id2'>Editar</button>
+                    </td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+
+
+
+
+
+
+          <!-- estos son los elementos que controlaremos para la tabla del control de medicina de los lotes-->
+        <form class="form_medLote" role = "form">    
+          <div class="form-group">
+            <div class="col-md-6">
+              <input type="text" class="Contact-name form-control" placeholder="Nombre medicamento" name="nombre" ng-model="vm.fdatos.nombre" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-6">
+              <input type="text" class="Contact-email form-control" placeholder="Id Lote" ng-model="vm.fdatos.idlote" title"Id Lote" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-6">              
+              <input type="date" class="Contact-email form-control" placeholder="Fecha de aplicacion"  ng-model="vm.fdatos.fecha" required/>
+            </div>
+          </div>                  
+          <div class="form-group">
+            <div class="col-md-6">              
+              <input type="number" class="Contact-email form-control" placeholder="Dosis"  ng-model="vm.fdatos.dosis" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-6">              
+              <input type="number" class="Contact-email form-control" placeholder="Cantidad de animales"  ng-model="vm.fdatos.numero_a" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-6">              
+              <input type="text" class="Contact-email form-control" placeholder="Descripcion"   ng-model="vm.fdatos.descripcion" required/>
+            </div>
+          </div>            
+          <button ng-click="vm.editarMedLote1()" class="beditarMedLote" type="submit">{{textButton}}</button>
+          <button ng-click="vm.enviarMedLote1()" class=" bguardarMedLote" type="submit">{{textButton}}</button>
+        </form>
+
+        <div class="eliminar_medLote">
+          <h6>Desea eliminar este registro?</h6>
+          <button ng-click="vm.borrarMedLote1()">Si</button>
+          <button>No</button>
+        </div>
+
+        <div class="tabla_medLote">
+          <span class="glyphicon glyphicon-save"></span>
+          <button ng-click="vm.enviarMedLote()">Agregar</button>
+          <table border="2px;" class=".table-condensed">
+            <thead>
+              <tr>
+                <th>Nº Reg</th>
+                <th>Nombre </th> 
+                <th>Id Lote</th> 
+                <th>Fecha de aplicacion</th>
+                <th>Dosis</th>
+                <th>numero</th>
+                <th>Descripcion</th>                    
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="n in names">
+                <td>{{n.id}}</td>               
+                <td>{{n.nombre}} </td>
+                <td>{{n.idlote}}</td>
+                <td>{{n.fecha}}</td>
+                <td>{{n.dosis}}</td>                    
+                <td>{{n.numero_a}}</td>                    
+                <td>{{n.descripcion}}</td>
+                <td>
+                  <button  ng-click="vm.borrarMedLote(n.id)">Eliminar</button>
+                  <button ng-click="vm.editarMedLote(n.id, n.nombre, n.idlote, n.fecha, n.dosis, n.numero_a, n.descripcion)">Editar</button>
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+
+
+
+        <form class="form_contPeso" role = "form">                  
+          <div class="form-group">
+            <div class="col-md-6">
+               <input type="text" class="Contact-name form-control" placeholder="Id lote" name="idlote" ng-model="vm.fdatos.idlote" required/>
+             </div>
+          </div>
+
+           <div class="form-group">
+            <div class="col-md-6">              
+              <input type="date" class="Contact-email form-control" placeholder="Fecha de Peso"  ng-model="vm.fdatos.fecha" required/>
+            </div>
+          </div> 
+
+          <div class="form-group">
+            <div class="col-md-6">
+              <input type="text" class="Contact-email form-control" placeholder="Descripcion" ng-model="vm.fdatos.descripcion"  required/>
+            </div>
+          </div>                                   
+
+          <div class="form-group">
+            <div class="col-md-6">              
+              <input type="number" class="Contact-email form-control" placeholder="Peso Mayor"  ng-model="vm.fdatos.mayor" required/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-6">              
+              <input type="number" class="Contact-email form-control" placeholder="Peso Menor"  ng-model="vm.fdatos.menor" required/>
+            </div>
+          </div>                      
+          <button ng-click="vm.editarContPeso1()" class="beditarContPeso" type="submit">{{textButton}}</button>
+          <button ng-click="vm.enviarContPeso1()" class=" bguardarContPeso" type="submit">{{textButton}}</button>
+        </form>
+
+        <div class="eliminar_contPeso">
+          <h6>Desea eliminar este registro?</h6>
+          <button ng-click="vm.borrarContPeso1()">Si</button>
+          <button>No</button>
+        </div>
+              
+        <div class="tabla_contPeso">
+          <span class="glyphicon glyphicon-save"></span>
+          <button ng-click="vm.enviarContPeso()">Agregar</button>
+          <table border="2px;" class=".table-condensed">
+            <thead>
+              <tr>   
+                <th>Nº Reg</th>              
+                <th>Id Lote</th> 
+                <th>Fecha de peso</th>
+                <th>Descripcion</th>
+                <th>Mayor</th>
+                <th>Menor</th>                    
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="n in names">
+                <td>{{n.id}}</td>               
+                <td>{{n.idlote}}</td>
+                <td>{{n.fecha}}</td>
+                <td>{{n.descripcion}}</td>                    
+                <td>{{n.mayor}}</td>                    
+                <td>{{n.menor}}</td>
+                <td>
+                  <button  ng-click="vm.borrarContPeso(n.id)">Eliminar</button>
+                  <button ng-click="vm.editarContPeso(n.id, n.idlote, n.fecha, n.descripcion, n.mayor, n.menor)">Editar</button>
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+
+
+
+        <!-- ELEMENTOS PARA LA CUBRICIÓN -->
+         <!--elementos utilizados para el funcionamiento del las cubriciones en las cerdas -->
+        <div class="modal fade" id="modal-id20">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form class="form_contCubricion" role = "form"> 
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Agregar estado de cerdas</h4>
+                  </div>
+                  <div class="modal-body" style="height: 400px">                 
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <input type="text" class="Contact-name form-control" placeholder="Id Cerda" name="idcerda" ng-model="vm.fdatos.idcerda" required/>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <input type="text" class="Contact-name form-control" placeholder="Id Varraco" name="idvarraco" ng-model="vm.fdatos.idbarraco" required/>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="date" class="Contact-email form-control" placeholder="Fecha de servicio"  ng-model="vm.fdatos.fecha_servicio" required/>
+                      </div>
+                    </div>                                 
+
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="text" class="Contact-email form-control" placeholder="Tipo de servicio"  ng-model="vm.fdatos.tipo" list="listaTipo"/>
+                        <datalist id="listaTipo">
+                          <option  value="Inseminacion" >
+                          <option  value="Monta normal">
+                        </datalist> 
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="estado" class="Contact-email form-control" placeholder="Estado"  ng-model="vm.fdatos.estado" list="listaEstado" required/>
+                        <datalist id="listaEstado">
+                          <option  value="Sin Verificar" >
+                          <option  value="Vacia">
+                          <option  value="Preñada">                       
+                        </datalist> 
+                      </div>
+                    </div>    
+                  </div> 
+                  <div class="modal-footer"> 
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                
+                    <button ng-click="vm.editarContCubricion1()" class="beditarContCubricion" type="submit"  type="button" class="btn btn-default" data-dismiss="modal">{{textButton}}</button>
+                    <button ng-click="vm.enviarContCubricion1()" class=" bguardarContCubricion" type="submit"  type="button" class="btn btn-default" data-dismiss="modal">{{textButton}}</button>
+                  </div>
+                </form>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+
+          <div class="modal fade" id="modal-id21">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title">Eliminar registro</h4>
+                </div>
+                <div class="modal-body" style="height: 400px">
+                    <h6>Está seguro que desea eliminar el registro?</h6>
+                    <h6>{{n.id}}</h6>
+                    <button ng-click="vm.borrarContCubricion1()" type="button"  data-dismiss="modal">Si</button>
+                    <button>No</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+
+                       
+                
+          <div class="tabla_contCubricion">
+            <span class="glyphicon glyphicon-save"></span>
+            <button ng-click="vm.enviarContCubricion()" data-toggle="modal" role="button" data-target='#modal-id20'>Agregar</button>
+            <table border="2px;" class=".table-condensed">
+              <thead>
+                <tr>   
+                  <th>Nº Reg</th>              
+                  <th>Id Cerda</th> 
+                  <th>Id Varraco</th> 
+                  <th>Fecha servicio</th>
+                  <th>tipo</th>
+                  <th>estado</th>                    
+                  <th>Opciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="n in names">
+                  <td>{{n.id}}</td>               
+                  <td>{{n.idcerda}}</td>
+                  <td>{{n.idbarraco}}</td>
+                  <td>{{n.fecha_servicio}}</td>                                        
+                  <td>{{n.tipo}}</td>
+                  <td>{{n.estado}}</td>                          
+                  <td>
+                    <button  ng-click="vm.borrarContCubricion(n.id)" data-toggle="modal" role="button" data-target="#modal-id21">Eliminar</button>
+                    <button ng-click="vm.editarContCubricion(n.id, n.idcerda, n.idbarraco, n.fecha_servicio, n.fecha_parto, n.tipo, n.estado)" data-toggle="modal" role="button" data-target='#modal-id20'>Editar</button>
+                    <button ng-click="vm.editarContCubricion(n.id, n.idcerda, n.idbarraco, n.fecha_servicio, n.fecha_parto, n.tipo, n.estado)">Editar</button>
+                  </td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+    
+
+<!--     TABLA DE ESTADOS PERO SOLO PARA CUBRICIONES-->
+          <div class="tabla_Cubricion ">
+            <table border="2px;" class="table-condensed">
+              <thead>
+                <tr>   
+                  <th>Nº Reg</th>              
+                  <th>Id Cerda</th> 
+                  <th>Id Varraco</th> 
+                  <th>Fecha servicio</th>
+                  <th>tipo</th>
+                  <th>estado</th>                    
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="n in names">
+                  <td>{{n.id}}</td>               
+                  <td>{{n.idcerda}}</td>
+                  <td>{{n.idbarraco}}</td>
+                  <td>{{n.fecha_servicio}}</td>                                        
+                  <td>{{n.tipo}}</td>
+                  <td>{{n.estado}}</td>                                            
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+
+          <div class="modal fade" id="modal-id23">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form class="form_contCubricion" role = "form"> 
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Verificación de estado</h4>
+                  </div>
+                  <div class="modal-body" style="height: 400px">                 
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <input type="text" class="Contact-name form-control" placeholder="Id Cerda" name="idcerda" ng-model="vm.fdatos.idcerda" required/>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <input type="text" class="Contact-name form-control" placeholder="Id Varraco" name="idvarraco" ng-model="vm.fdatos.idbarraco" required/>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="date" class="Contact-email form-control" placeholder="Fecha de servicio"  ng-model="vm.fdatos.fecha_servicio" required/>
+                      </div>
+                    </div>                                 
+
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="text" class="Contact-email form-control" placeholder="Tipo de servicio"  ng-model="vm.fdatos.tipo" list="listaTipo"/>
+                        <datalist id="listaTipo">
+                          <option  value="Inseminacion" >
+                          <option  value="Monta normal">
+                        </datalist> 
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="estado" class="Contact-email form-control" placeholder="Estado"  ng-model="vm.fdatos.estado" list="listaEstado" required/>
+                        <datalist id="listaEstado">
+                          <option  value="Vacia">
+                          <option  value="Preñada">                       
+                        </datalist> 
+                      </div>
+                    </div>    
+                  </div> 
+                  <div class="modal-footer"> 
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                
+                    <button ng-click="vm.modificar_estado1()" class="beditarContCubricion" type="submit"  type="button" class="btn btn-default" data-dismiss="modal">Cambiar estado</button>
+                  </div>
+                </form>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+        
+          <div class="tabla_verificar">
+            <table border="2px;" class=".table-condensed">
+              <thead>
+                <tr>   
+                  <th>Nº Reg</th>              
+                  <th>Id Cerda</th> 
+                  <th>Id Varraco</th> 
+                  <th>Fecha servicio</th>
+                  <th>tipo</th>
+                  <th>estado</th>  
+                  <th>opciones</th>                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="n in names">
+                  <td>{{n.id}}</td>               
+                  <td>{{n.idcerda}}</td>
+                  <td>{{n.idbarraco}}</td>
+                  <td>{{n.fecha_servicio}}</td>                                        
+                  <td>{{n.tipo}}</td>
+                  <td>{{n.estado}}</td> 
+                  <td><button ng-click="vm.modificar_estado()" data-toggle="modal" role="button" data-target="#modal-id23">EDIT</button></td>                         
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        
+
+
+
+
+
+
+            <!-- elementos utilizados para manipular las funciones de partos -->
+
+
+
+
+        <form class="form_contParto" role = "form">
+          <div class="form-group">
+            <div class="col-md-6">
+              <input type="text" class="Contact-name form-control" placeholder="Id Cerda" name="idcerda" ng-model="vm.fdatos.idcerda" required/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-6">
+              <input type="date" class="Contact-name form-control" placeholder="Fecha del parto" name="fecha" ng-model="vm.fdatos.fecha" required/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-6">              
+              <input type="number" class="Contact-email form-control" placeholder="Cant. Nacidos"  ng-model="vm.fdatos.cant_nacidos" required/>
+            </div>
+          </div> 
+
+          <div class="form-group">
+            <div class="col-md-6">
+              <input type="number" class="Contact-email form-control" placeholder="Nacidos Vivos" ng-model="vm.fdatos.nacidos_vivos"  required/>
+            </div>
+          </div>                                   
+
+          <div class="form-group">
+            <div class="col-md-6">              
+              <input type="number" class="Contact-email form-control" placeholder="Cant. Hembras"  ng-model="vm.fdatos.cant_hembras" required/>            
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-6">              
+              <input type="number" class="Contact-email form-control" placeholder="Cant. Hembras"  ng-model="vm.fdatos.cant_machos"  required/>    
+            </div>
+          </div>                          
+             
+          <button ng-click="vm.editarParto1()" class="beditarParto" type="submit">{{textButton}}</button>
+          <button ng-click="vm.enviarParto1()" class="bguardarParto" type="submit">{{textButton}}</button>
+        </form>
+
+        <div class="eliminar_contParto">
+          <h6>Desea eliminar este registro?</h6>
+          <button ng-click="vm.borrarContParto1()">Si</button>
+          <button>No</button>
+        </div> 
+
+
+        <div class="tabla_contParto">
+          <span class="glyphicon glyphicon-save"></span>
+          <button ng-click="vm.enviarParto()">Agregar</button>
+          <table border="2px;" class=".table-condensed">
+            <thead>
+              <tr>
+                <th>Nº Reg</th>                 
+                <th>Id Cerda</th> 
+                <th>Fecha Parto</th> 
+                <th>Cant. Nacidos</th>
+                <th>Nacidos Vivos</th>
+                <th>Cant. Hembras</th>
+                <th>Cant. Machos</th>                    
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="n in names"> 
+                <td>{{n.id}}</td>              
+                <td>{{n.idcerda}}</td>
+                <td>{{n.fecha}}</td>
+                <td>{{n.cant_nacidos}}</td>                    
+                <td>{{n.nacidos_vivos}}</td>                    
+                <td>{{n.cant_hembras}}</td>
+                <td>{{n.cant_machos}}</td>                          
+                <td>
+                <button  ng-click="vm.borrarContParto(n.id)">Eliminar</button>
+                <button ng-click="vm.editarContParto(n.id, n.idcerda, n.fecha, n.cant_nacidos, n.nacidos_vivos, n.cant_hembras, n.cant_machos)">Editar</button>
+                <button> Cal</button>
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <form class="form_alimentoCerda" role = "form">
+                  
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <input type="text" class="Contact-name form-control" placeholder="Nombre Alimento" name="nomb_alimento" ng-model="vm.fdatos.nombre_alimento" required/>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <input type="text" class="Contact-name form-control" placeholder="Id Cerda" name="idcerda" ng-model="vm.fdatos.idcerda" required/>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-6">              
+                      <input type="date" class="Contact-email form-control" placeholder="Fecha de suministro"  ng-model="vm.fdatos.fecha" required/>
+                    </div>
+                  </div> 
+
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <input type="number" class="Contact-email form-control" placeholder="Cantidad Kg" ng-model="vm.fdatos.cant_kg"  required/>
+                    </div>
+                  </div>                            
+
+                  <button ng-click="vm.editarAlimentoCerda1()" class="beditarAlimentoCerda" type="submit">{{textButton}}</button>
+                  <button ng-click="vm.enviarAlimentoCerda1()" class=" bguardarAlimentoCerda" type="submit">{{textButton}}</button>
+              </form>
+
+              <div class="eliminar_alimentoCerda">
+                <h6>Desea eliminar este registro?</h6>
+                <button ng-click="vm.borrarAlimentoCerda1()">Si</button>
+                <button>No</button>
+              </div> 
+
+              <div class="tabla_contAlimentoCerda">
+                <span class="glyphicon glyphicon-save"></span>
+                  <button ng-click="vm.enviarAlimentoCerda()">Agregar</button>
+                    <table border="2px;" class=".table-condensed">
+                      <thead>
+                        <tr> 
+                          <th>Nº Reg</th>                
+                          <th>Nombre Alimento</th> 
+                          <th>Id Cerda</th> 
+                          <th>Fecha</th>
+                          <th>Cant. kg</th>                    
+                          <th>Opciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="n in names"> 
+                          <td>{{n.id}}</td>              
+                          <td>{{n.nombre_alimento}}</td>
+                          <td>{{n.idcerda}}</td>
+                          <td>{{n.fecha}}</td>                    
+                          <td>{{n.cant_kg}}</td>                           
+                          <td>
+                            <button  ng-click="vm.borrarAlimentoCerda(n.id)">Eliminar</button>
+                            <button ng-click="vm.editarAlimentoCerda(n.id, n.nombre_alimento, n.idcerda, n.fecha, n.cant_kg)">Editar</button>
+                          </td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+              </div>
+
+              <form class="form_alimentoLote" role = "form">    
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <input type="text" class="Contact-name form-control" placeholder="Nombre Alimento" name="nomb_alimento" ng-model="vm.fdatos.nombre_alimento" required/>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <input type="text" class="Contact-name form-control" placeholder="Id Lote" name="idlote" ng-model="vm.fdatos.idlote" required/>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-6">              
+                      <input type="date" class="Contact-email form-control" placeholder="Fecha de suministro"  ng-model="vm.fdatos.fecha" required/>
+                    </div>
+                  </div> 
+
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <input type="number" class="Contact-email form-control" placeholder="Cantidad Kg" ng-model="vm.fdatos.cant_kg"  required/>
+                    </div>
+                  </div>                            
+
+                  <button ng-click="vm.editarAlimentoLote1()" class="beditarAlimentoLote" type="submit">{{textButton}}</button>
+                  <button ng-click="vm.enviarAlimentoLote1()" class=" bguardarAlimentoLote" type="submit">{{textButton}}</button>
+              </form>
+
+              
+
+              <div class="eliminar_alimentoLote">
+                <h6>Desea eliminar este registro?</h6>
+                <button ng-click="vm.borrarAlimentoLote1()">Si</button>
+                <button>No</button>
+              </div>
+
+              <div class="tabla_alimentoLote">
+                <span class="glyphicon glyphicon-save"></span>
+                  <button ng-click="vm.enviarAlimentoLote()">Agregar</button>
+                    <table border="2px;" class=".table-condensed">
+                      <thead>
+                        <tr>   
+                          <th>Nº Reg</th>              
+                          <th>Nombre Alimento</th> 
+                          <th>Id Lote</th> 
+                          <th>Fecha</th>
+                          <th>Cant. kg</th>                    
+                          <th>Opciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="n in names">  
+                          <td>{{n.id}}</td>             
+                          <td>{{n.nombre_alimento}}</td>
+                          <td>{{n.idlote}}</td>
+                          <td>{{n.fecha}}</td>                    
+                          <td>{{n.cant_kg}}</td>                           
+                          <td>
+                            <button  ng-click="vm.borrarAlimentoLote(n.id)">Eliminar</button>
+                            <button ng-click="vm.editarAlimentoLote(n.id, n.nombre_alimento, n.idlote, n.fecha, n.cant_kg)">Editar</button>
+                          </td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+              </div>
+
+        
+
+        <div>  
+          <div class="tabla_calendario">
+            <button class="btn btn-primary boton_cubricion" ng-click="vm.tabla_cubricion()">Tabla 1</button>
+            <button class="btn btn-primary boton_verificar" ng-click="vm.tabla_verificar()">Tabla 2</button>
+            <button class="btn btn-primary boton_parto" ng-click="vm.tabla_parto()">Tabla 3</button> 
+          </div>
+
+          <div class="calendario1">
+            <div class="container ">  
+              <div class="row">
+                <div class="page-header nav_calendario">
+                  <div class="pull-right form-inline">
+                    <div class="btn-group">
+                      <button class="btn btn-primary" data-calendar-nav="prev"><< Anterior</button>
+                      <button class="btn" data-calendar-nav="today">Hoy</button>
+                      <button class="btn btn-primary" data-calendar-nav="next">Siguiente >></button>
+                    </div>
+                    <div class="btn-group">
+                      <button class="btn btn-warning" data-calendar-view="year">Año</button>
+                      <button class="btn btn-warning active" data-calendar-view="month">Mes</button>
+                      <button class="btn btn-warning" data-calendar-view="week">Semana</button>
+                      <button class="btn btn-warning" data-calendar-view="day">Día</button>
+                    </div>
+                  </div>
+                  <h3 class="texto_fecha"></h3>
+                </div>  
+                <label class="checkbox">
+                  <input type="checkbox" value="#events-modal" id="events-in-modal"> Abrir eventos en una ventana modal
+                </label>  
+              </div>
+            </div>
+            <div class="row">
+                <div id="calendar"></div>
+            </div>
+          </div>
+        </div>
+
+
+           
+
+
+
+
+
+      </div>
+
+
+      <div class="col-xs-1  date-info">
+        <div class="btn-group calendarios">
+            <button class="btn btn-primary" ng-click="vm.calendario1()">Fechas de cubriciones</button>
+            <button class="btn btn-primary" ng-click="vm.calendario2()">Fechas de Verificación</button>
+            <button class="btn btn-primary" ng-click="vm.calendario3()">Fechas de Partos</button> 
+            <button class="btn btn-primary" ng-click="vm.controlCubricion()"> Tabla de estados</button>  
+            <button class="btn btn-primary" ng-click="vm.controlPartos()">Manejo de partos</button>        
+        </div>
+      </div>
+
+    </article>
+</div>
+
+

@@ -1,0 +1,527 @@
+body {
+	font-family: 'Source Sans Pro', 'Helvetica Neue',Helvetica, arial, Sans-serif;
+	background: #A3D988;
+	margin-top: 80px;
+}
+
+/*<div>Copyright by <a href="http://icon-download.com" title="icon-downloads">www.icon-download.com</a></div>*/
+
+p {
+	color:#777;
+	font-size: 16px;
+	font-size: 1.6rem;
+	font-weight: 300;
+}
+
+ul {
+	padding: 0;
+	margin:0;
+	list-style-type: none;
+}
+
+ul li {
+	margin-bottom: 5px;
+}
+
+#main-header {
+	position: fixed;
+	top:0;
+	width: 100%;
+	background-color:#FFF;
+	z-index:99;
+
+	background-color:rgb(255, 255, 255);
+	background-color: rgb(255, 255, 255, 0.95);
+	/* For IE 8*/
+	 -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#11000000, endColorstr=#11000000)";
+
+	-moz-box-shadow:0 1px 5px #999;
+	-webkit-box-shadow:0 1px 5px #999;
+	box-shadow: 0 1px 5px #999;
+}
+
+#main-logo {
+	width:100%;
+	height:60px;
+	padding:2px 0 0 20px;
+	margin:0;
+	background-color: #A3D900;
+}
+
+#main-logo a {
+	font-size: 20px;
+	font-size: 2rem;
+	font-weight:600;
+	color:#FFF;
+	text-decoration:none;
+}
+
+#main-logo a span {
+	display: block;
+	color:DFFFBF;
+	font-size: 13px;
+	font-size: 1.3rem;
+}
+
+
+/* Estilos para el menu en mobil*/
+#mobile-menu-button {
+	float: right;
+	width: 44px;
+	margin: 20px 0;
+}
+
+#mobile-main-menu {
+	display: none;
+}
+
+#mobile-main-menu a {
+	display: block;
+	width: 100%;
+	padding: 10px 0;
+	border-top:1px solid #EEE;
+	color:#AAA;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#mobile-main-menu li {
+	margin:0;
+}
+
+#mobile-main-menu a:hover {
+	color:#FFF;
+	text-decoration: none;
+	background-color:#A3D900;
+}
+/*Estilos para las secciones de los workshops*/
+
+
+
+.workshop {
+	width:100%;
+	min-height:400px;
+	padding:50px 0;
+
+	background-position: 0 0;
+	background-repeat:no-repeat;
+	background-size:cover;
+
+	font-weight:300;
+}
+
+.workshop p {
+	font-size:18px;
+	font-size:1.8rem;
+}
+
+.workshop a, .whorkshop a:hover {
+	color:#FFF;
+	font-weight:400;
+}
+
+.workshop-left h3 {
+	float:right;
+	clear:right;
+	text-align:right;
+}
+
+.workshop-right h3 {
+	float:left;
+	clear:left;
+	text-align:left;
+} 
+
+.workshop-left {
+	text-align: left;
+}
+
+.workshop-right {
+	text-align: right;
+}
+
+.main-info h2 {
+	margin:0 0 20px 0;
+	font-size:56px;
+	font-size: 5.6rem;
+	line-height:56px;
+	line-height: 5.6rem;
+	color:#FFF;
+	font-weight: 200;
+}
+
+.main-info p {
+	margin-bottom: 20px;
+	font-size: 18px;
+	font-size: 1.8rem;
+	line-height: 18;
+	line-height: 1.8rem;
+	font-weight: 400;
+}
+
+.date-info {
+	margin-top:20px;
+}
+
+.date-info h3 {
+	display:inline-block;
+	padding:3px 10px;
+	margin: 0 0 4px 0;
+
+	color:#FFF;
+	font-weight:200;
+	text-transform: uppercase;
+
+	background-color:rgb(0, 0, 0);
+	background-color: rgb(0, 0, 0);
+	
+}
+
+.date-info h3 strong {
+	margin-right: 10px;
+}
+
+.workshop .btn, .workshop .btn:hover {
+	padding: 10px 35px;
+	color:#FFF;
+}
+
+.more-info-link {
+	margin:0 15px;
+}
+
+#w1 {
+	height: 625px;
+	/*background-image:url(../img/frio.jpg);*/
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+#w1 p {
+	color:#B25900;
+}
+
+#w1 p a {
+	color:661900;
+
+}
+
+#w1 .btn {
+	background-color: #006698;
+}
+
+#w2 {
+	
+	background-image: url(../img/equipo_bg.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+#w2 p {
+	color:#FFA5A5;
+}
+
+#w2 p a {
+	color: #FFF;
+}
+
+#w2 .btn {
+	color:444;
+	background-color: #EEE;
+}
+
+#titulo1 {
+	height: 300px;
+	background-image: url(../img/contacto.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	text-align: center;
+
+}
+
+#titulo1 h1 {
+
+	color: #FFF;
+	font-size: 50px;
+}
+
+#tittle {
+	text-align: center;
+	height: 315px;
+}
+
+
+
+/* Esto hace parte de los estilos del pie de paguina*/
+
+footer {
+	padding: 30px 0;
+	background-color:#333;
+}
+
+footer a, footer a:hover {
+	color: #FFF;
+	font-weight:400; 
+}
+
+footer h3 {
+	margin-top:30px;
+	color:#FFF;
+	font-size: 16px;
+	font-size: 1.6rem;
+	text-transform: uppercase;
+}
+
+footer {
+	color:#DDD;
+	font-weight: 200;
+}
+
+
+/*Estilos para la pagina se detail*/
+#next-workshops a {
+	color:#00BFFF;
+	text-decoration: none;
+}
+
+#next-workshops a:hover{
+	color:#FFF;
+	text-decoration: none;
+}
+
+#subscribe-form input{
+	padding: 0 24px;
+	border:0;
+	border-radius: 0px;
+
+	color:#CCC;
+	font-size: 16px;
+	font-size: 1.6rem;
+	font-weight:300;
+	line-height: normal;
+	background-color:#222;
+}
+
+#subscribe-form button {
+	width:100%;
+	color:#444;
+	background-color:#EEE;
+	line-height: 24px;
+	line-height: 2.4rem;
+}
+
+
+.btn-custom {
+	border:0;
+	border-radius:0px;
+
+	font-size:14px;
+	font-size:1.4rem;
+	font-weight:600;
+}
+
+#w1-detail header {
+	padding:40px 0;
+	background:url('');
+	background-size: cover;
+}
+
+section {
+	margin:40px 0;
+}
+
+.detail h2, .detail h3, .detail h4 {
+	color: #333;
+	font-weight: 300;
+}
+
+.detail h2 {
+	color:#FFF;
+	font-size:56px;
+	font-size:5.6rem;
+	font-weight:200;
+}
+
+.detail h3 {
+	font-size:32px;
+	font-size: 3.2rem;
+} 
+
+.detail h4 {
+	margin-bottom:10px;
+	color:#1F1F1F;
+	font-size:16px;
+	font-size: 1.6rem;
+	font-weight: 600;
+}
+
+.detail dt {
+	float:left;
+	width:15%;
+}
+
+.detail dd {
+	float:left;
+	width: 70%;
+	padding-left: 4%;
+	margin-left:0;
+}
+
+#intro h3 {
+	margin: 0 0 20px 0;
+	font-size: 40px;
+	font-size:4rem;
+}
+
+#trainer-list img {
+	display: block;
+	margin:10px auto 0 auto; 
+}
+
+#trainer-list .trainer + .trainer {
+	margin-top: 40px;
+}
+
+#trainer-list p {
+	font-size:15px;
+	font-size: 1.5rem;
+	line-height:18px;
+	line-height: 1.8rem;
+}
+
+.trainer-link {
+	margin-right: 20px;
+	color:#006CD8;
+}
+
+#registration-badge {
+	width:80%;
+	margin:0 auto;
+	font.size:20px;
+	border:1px solid #DCE9AF;
+}
+
+#registration-badge .price{
+	float:left;
+	width:50%;
+	margin:0;
+
+	color:#666;
+	font-size: 60px;
+	font-size: 6rem;
+	font-weight: 200;
+	text-align: right;
+}
+
+#registration-badge .included {
+	float: left;
+	width: 50%;
+	padding: 10px 0 0 20px;
+
+	color: #888;
+	font-size: 14px;
+	font-size: 1.4rem;
+	line-height: 18px;
+	line-height: 1.8rem ;
+	font-weight: 400;
+	text-align:left;
+}
+
+#registration-badge .do-register {
+	display:inline-block;
+	width: 100%;
+	padding:10px 0;
+
+	color:#FFF;
+	font-size: 16px;
+	font-size: 1.6rem;
+	font-weight: 600;
+	text-align:center;
+	text-decoration: none;
+
+	background-color:#A3D900;
+}
+
+#registration-badge .do-register:hover {
+	text-decoration: none;
+	background-color:#7CA600;
+}
+
+#table-of-contents {
+	padding:10px 0;
+	margin-bottom:0;
+	background-color:#EEE;
+}
+
+#table-of-contents h3 {
+	margin-bottom: 20px;
+}
+
+#table-of-contents h4 {
+	margin:0;
+	color:#444;
+	font-size: 14px;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+
+#table-of-contents ul {
+	margin:0 0 40px 0;
+}
+
+#table-of-contents li {
+	margin-bottom:0;
+	color:#777;
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: 200;
+}
+
+#location-info {
+	position:relative;
+	height: 300px;
+	margin-top: 0;
+}
+
+#map-canvas {
+	position:absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 300px;
+}
+
+.location-info {
+	margin:0;
+	padding: 0;
+}
+#hotel-info {
+	height: 300px;
+	background-color: rgb(255, 255, 255);
+	background-color: rgba(255, 255, 255);
+}
+
+#faq {
+	background-color: #EEF;
+	padding: 0;
+	margin: 0;
+}
+#faq h4 {
+	color:#444;
+	font-weight: 600;
+}
+
+#faq p {
+	font-size: 15px;
+	line-height: 18px;
+}
+
+
+.nav_calendario{
+	width: 50%;
+}
+
+.texto_fecha{
+	margin-right: 120px;
+	color: green;
+}

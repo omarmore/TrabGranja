@@ -1,0 +1,361 @@
+        <div id="workshops-list">
+          <article id="w1" class="workshop workshop-left">
+            <div class="container" class="col-xs-3 main-info" >
+              <div class="row-fluid">
+                <div class="span6">
+                  <div class="page-header">
+                    <h1>Tablas y registros</h1>     
+                  </div>
+                </div>
+              </div>
+            </div>
+
+  
+            <div class="col-xs-3 main-info" >
+              <div class="row-fluid">
+                  <div class="col-md-8">                 
+                    <div class="form-group">
+                      <div class="col-md-8">
+                        <a class="btn btn-primary btn-lg boton-secundario btn-cerdas" role="button" href="#/registro/cerda">Cerdas</a>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-8 ">
+                        <a class="btn btn-primary btn-lg boton-secundario btn-varracos" role="button" href="#/registro/varraco">Varracos</a>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-8 ">
+                        <a class="btn btn-primary btn-lg boton-secundario" role="button" href="#/registro/lote">Lotes</a>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-8">
+                        <a class="btn btn-primary btn-lg boton-secundario"  role="button" href="#/registro/corral">Corrales</a>
+                      </div>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-6">
+                <div class="cerda">
+                  <div class="tabla_cerda">
+                    <table border="2px;" >
+                    <button ng-click="vm.enviarCerda()">Agregar</button>
+                      <thead>
+                        <tr>
+                          <th>Id cerda </th> 
+                          <th> Raza</th> 
+                          <th>Fecha de Nacimiento</th>
+                          <th># de tetas</th>
+                          <th>Color</th>
+                          <th>Peso</th>
+                          <th>Valor $</th>
+                          <th>Opciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="n in names">               
+                          <td>{{n.idcerda}} </td>
+                          <td>{{n.raza}}</td>
+                          <td>{{n.fecha_n}}</td>
+                          <td>{{n.n_tetas}}</td>
+                          <td>{{n.color}}</td>
+                          <td>{{n.peso}}</td>
+                          <td>{{n.valor_cerda}}</td>
+                          <td><button  ng-click="vm.borrarCerda(n.idcerda)">Eliminar</button></td>
+                          <td><button ng-click="vm.editarCerda(n.idcerda, n.raza, n.fecha_n, n.n_tetas, n.color, n.peso, n.valor_cerda)">Editar</button></td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <form class="form_cerda">
+                    <h5>Formulario</h5>
+                      Id cerda:<input type="text" ng-model="vm.fdatos.idcerda">
+                              <br>              
+                      Raza:  <input type="text" ng-model="vm.fdatos.raza">
+                              <br>
+                      Fecha de nacimiento:  <input type="date" ng-model="vm.fdatos.fecha_n">
+                              <br>
+                      Nª de tetas:  <input type="text" ng-model="vm.fdatos.n_tetas">
+                              <br>
+                      Color:  <input type="text" ng-model="vm.fdatos.color">
+                              <br>
+                      Peso:  <input type="text" ng-model="vm.fdatos.peso">
+
+                              <br>
+                      Valor cerda:  <input type="text" ng-model="vm.fdatos.valor_cerda">
+                              <br>
+                             <button ng-click="vm.editarCerda1()" class="beditar" type="submit">{{textButton}}</button>
+                             <button ng-click="vm.enviarCerda1()" class="bguardar" type="submit">{{textButton}}</button>
+                             <button id="cerrar" ng-click="vm.close()"> Cancelar</button>
+                  </form>
+
+                  <div class="eliminar_cerda">
+                      <h6>Desea eliminar este registro?</h6>
+                      <button ng-click="vm.borrarCerda1()">Si</button>
+                      <button>No</button>
+                  </div>
+                </div>
+
+          
+                <div class="varraco">
+                  <form class="form_varraco" role = "form">
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <input type="text" class="Contact-name form-control" placeholder="Id Varraco" name="id_cerda" ng-model="vm.fdatos.idvarraco" title="Este campo solo admite datos numericos" required/>
+                      </div>
+                    </div>
+                    
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <input type="text" class="Contact-email form-control" placeholder="Raza" name="raza" ng-model="vm.fdatos.raza" list="listaRaza" required />
+                        <datalist id="listaRaza">
+                          <option  value="Pietrain" valor="1">
+                          <option  value="Duroc">
+                          <option  value="Landrace">    
+                          <option  value="Hamp Shire">  
+                          <option  value="Large White">                        
+                        </datalist> 
+                      </div>
+                    </div>  
+                    
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <input type="date" class="Contact-email form-control" placeholder="Fecha de nacimiento" name="fecha_n" ng-model="vm.fdatos.fecha_n" title"Fecha de entrada" required/>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="text" class="Contact-email form-control" placeholder="Linea" name="linea" ng-model="vm.fdatos.linea" required/>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="text" class="Contact-email form-control" placeholder="Estado" name="estado" ng-model="vm.fdatos.estado" required pattern="[a-zA-Z]*"/>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="number" class="Contact-email form-control" placeholder="Peso" name="peso"  ng-model="vm.fdatos.peso" required/>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="number" class="Contact-email form-control" placeholder="Valor" name="valor"  ng-model="vm.fdatos.valor_varraco" />
+                      </div>
+                    </div>          
+                    <button ng-click="vm.editarVarraco1()" class="beditarVarraco" type="submit">{{textButton}}</button>
+                    <button ng-click="vm.enviarVarraco1()" class=" bguardarVarraco" type="submit">{{textButton}}</button>
+                  </form>
+              
+
+                  <div class="eliminar_varraco">
+                      <h6>¿Desea eliminar este registro?</h6>
+                      <button ng-click="vm.borrarVarraco1()">Si</button>
+                      <button >No</button>
+                  </div>
+                               
+                  <div class="tabla_varraco">                
+                    <button ng-click="vm.enviarVarraco()">Agregar</button>
+                    <table border="2px;" class=".table-condensed">
+                      <thead>
+                        <tr>
+                          <th>Id Varraco</th> 
+                          <th>Raza</th> 
+                          <th>Fecha de Entrada</th>
+                          <th>Linea</th>
+                          <th>Estado</th>
+                          <th>Peso</th>
+                          <th>Valor $</th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="n in names">               
+                          <td>{{n.idbarraco}}</td>
+                          <td>{{n.raza}}</td>
+                          <td>{{n.fecha_n}}</td>             
+                          <td>{{n.linea}}</td>
+                          <td>{{n.estado}}</td>
+                          <td>{{n.peso}}</td>
+                          <td>{{n.valor_barraco}}</td>
+                          <td><button  ng-click="vm.borrarVarraco(n.idbarraco)">Eliminar</button></td>
+                          <td><button ng-click="vm.editarVarraco(n.idbarraco, n.raza, n.fecha_n, n.linea, n.estado, n.peso, n.valor_barraco)">Editar</td>                      
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+
+                <div class="lote">
+                  <form class="form_lote" role = "form">
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <input type="text" class="Contact-name form-control" placeholder="Id lote" name="id_lote" ng-model="vm.fdatos.idlote" title="Este campo solo admite datos numericos" required/>
+                      </div>
+                    </div>                   
+                        
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <input type="date" class="Contact-email form-control" placeholder="Fecha de entrada" name="fecha_n" ng-model="vm.fdatos.fecha_n" title"Fecha de entrada" required/>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="number" class="Contact-email form-control" placeholder="Cantidad" name="cantidad" ng-model="vm.fdatos.cant" required/>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="number" class="Contact-email form-control" placeholder="peso" name="peso" ng-model="vm.fdatos.peso" required/>
+                      </div>
+                    </div>                        
+                    <button ng-click="vm.editarLote1()" class="beditarLote" type="submit">{{textButton}}</button>
+                    <button ng-click="vm.enviarLote1()" class="bguardarLote" type="submit">{{textButton}}</button>
+                  </form>
+                  <div class="eliminar_lote">
+                      <h6>¿Desea eliminar ?</h6>
+                      <button ng-click="vm.borrarLote1()">Si</button>
+                      <button >No</button>
+                  </div>
+                  <div class="tabla_lote">                
+                    <button ng-click="vm.enviarLote()">Agregar</button>
+                    <table border="2px;" class=".table-condensed">
+                      <thead>
+                        <tr>
+                          <th>Id lote</th> 
+                          <th>Fecha Entrada</th> 
+                          <th>Cantidad de animales</th>
+                          <th>Peso del lote</th>                          
+                          <th></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="n in names">               
+                        <td>{{n.idlote}}</td>
+                        <td>{{n.fecha_n}}</td>
+                        <td>{{n.cant_animales}}</td>             
+                        <td>{{n.peso_nac}}</td>                          
+                        <td><button  ng-click="vm.borrarLote(n.idlote)">Eliminar</button></td>
+                        <td><button ng-click="vm.editarLote(n.idlote, n.fecha_n, n.cant_animales, n.peso_nac)">Editar</button></td>               
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="corral">
+                  <form class="form_corral" role = "form">
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <input type="text" class="Contact-name form-control" placeholder="Id Corral" name="id_corral" ng-model="vm.fdatos.idcorral" title="Este campo solo admite datos numericos" required/>
+                      </div>
+                    </div>                                   
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <input type="date" class="Contact-email form-control" placeholder="Fecha de entrada" name="fecha" ng-model="vm.fdatos.fecha" title"Fecha de entrada" required/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="number" class="Contact-email form-control" placeholder="Capacidad" name="capacidad" ng-model="vm.fdatos.capacidad" required/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="number" class="Contact-email form-control" placeholder="Peso inicial" name="peso_inicial" ng-model="vm.fdatos.peso_inicial" required/>
+                      </div>
+                    </div>                  
+                    <div class="form-group">
+                      <div class="col-md-6">              
+                        <input type="text" class="Contact-email form-control" placeholder="idLote" name="idlote"  ng-model="vm.fdatos.idlote" required/>
+                      </div>
+                    </div>                              
+                    <button ng-click="vm.editarCorral1()" class="beditarCorral" type="submit">{{textButton}}</button>
+                    <button ng-click="vm.enviarCorral1()" class=" bguardarCorral" type="submit">{{textButton}}</button>
+                  </form>
+
+                  <div class="eliminar_corral">
+                      <h6>¿Desea eliminar el registro del corral?</h6>
+                      <button ng-click="vm.borrarCorral1()">Si</button>
+                      <button >No</button>
+                  </div>
+              
+                  <div class="tabla_corral">                
+                    <button ng-click="vm.enviarCorral()">Agregar</button>
+                    <table border="2px;" class="table-condensed">
+                      <thead>
+                        <tr>
+                          <th>Id Corral</th> 
+                          <th>Fecha</th> 
+                          <th>Capacidad</th>
+                          <th>Peso inicial</th>                  
+                          <th>Id Lote</th>
+                          <th>operaciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="n in names">               
+                          <td>{{n.idcorral}}</td>
+                          <td>{{n.fecha}}</td>
+                          <td>{{n.capacidad}}</td>             
+                          <td>{{n.peso_inicial}}</td>
+                          <td>{{n.idlote}}</td>                          
+                          <td>
+                          <button  ng-click="vm.borrarCorral(n.idcorral)">Eliminar</button>
+                          <button ng-click="vm.editarCorral(n.idcorral, n.fecha, n.capacidad, n.peso_inicial, n.idlote)">Editar</button>
+                          </td>        
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+               </div>
+            </div>
+       
+               
+
+
+            <div class="col-xs-3  date-info">
+              <div class="">
+                <a href="#" class="">
+                  <h4 class="list-group-item-heading">Informes de producción</h4> 
+                </a>
+                <a href="#" class="">
+                  <h4 class="list-group-item-heading">Calidad</h4>
+                  <p class="list-group-item-text">Distinguirnos por la calidad de nuestros productos, servicios que brindemos 
+                    a nuestros clientes y como la empresa más eficiente y productiva de la zona, con el soporte de nuestra
+                     experiencia, conocimiento, orientación de servicio e innovación.</p>
+                </a>
+                <a href="#" class="list-group-item">
+                  <h4 class="list-group-item-heading">Procesos</h4>
+                  <p class="list-group-item-text">Procesos de control de calidad requeridos por la empresa: se tendrán 
+                    controles de los insumos y materiales en cuanto a cantidad y calidad; los 
+                    cuales deberán cumplir con las normas planteadas por la empresa.</p>
+                </a>              
+              </div>
+            </div>
+
+          </article>
+        </div>
+      
+
+
+
+
+
+
+  
+      
+  
