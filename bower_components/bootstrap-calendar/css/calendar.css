@@ -389,13 +389,13 @@
 }
 .cal-year-box .row-fluid:hover,
 .cal-row-fluid:hover {
-  background-color: #fafafa;
+  background-color: #EEE;
 }
 .cal-month-day {
   height: 100px;
 }
 [class*="cal-cell"]:hover {
-  background-color: #ededed;
+  background-color: #61D1EC;
 }
 .cal-year-box [class*="span"],
 .cal-month-box [class*="cal-cell"] {
