@@ -1,0 +1,15 @@
+<span id="cal-slide-tick" style="display: none"></span>
+<div id="cal-slide-content" class="cal-event-list">
+	<h4>Id cerdas</h4>
+	<ul class="unstyled list-unstyled">
+		<% _.each(events, function(event) { %>
+			<li>
+				<button ng-click="vm.verificar_tabla()" class="pull-left event <%= event['class'] %>"></button>&nbsp;
+				<a href="<%= event.url ? event.url : 'javascript:void(0)' %>" data-toggle="modal" role="button" data-target="#modal-id29" data-event-id="<%= event.id %>"
+					data-event-class="<%= event['class'] %>" class="event-item">
+					<%= event.idcerda %> </a>
+
+			</li>
+		<% }) %>
+	</ul>
+</div>
